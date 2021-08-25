@@ -25,7 +25,7 @@ export default {
     },
     data: function () {
         return {
-            opacity: 50
+            opacity: 40
         }
     }
 }
