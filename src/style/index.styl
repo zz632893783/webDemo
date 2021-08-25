@@ -1,0 +1,93 @@
+@import './reset.css'
+
+@font-face {
+    font-family: GT-America-Expanded-Light;
+    src: url('~@/assets/font/GT-America-Expanded-Light.otf');
+}
+
+* {
+    // font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: GT-America-Expanded-Light;
+    color: #2c3e50;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: all 0.25s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+.nav-bar {
+    position: fixed;
+    left: vw(354 + 3);
+    right: 0;
+    top: 0;
+    font-size: 0;
+    padding-top: vh(68 + 13);
+    background-color: white;
+    .nav-item {
+        position: relative;
+        width: vw(411);
+        height: vh(110);
+        display: inline-block;
+        vertical-align: text-top;
+        text-align: center;
+        padding-top: vh(16 + 2);
+        cursor: pointer;
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            width: vw(2);
+            height: vh(54 + 10);
+            background-color: #c8c8c8;
+            top: 0;
+            transform: translate(vw(17), 0) skewX(-30deg);
+            transform-origin: 0% 0%;
+            transition: linear $transitionDuration;
+        }
+        &:before {
+            left: 0;
+        }
+        &:after {
+            right: vw(-2);
+        }
+        .title {
+            font-size: vh(26);
+            font-family: GT-America-Expanded-Light;
+            font-weight: 600;
+            color: #666666;
+            transition: linear $transitionDuration;
+            transform: scale(0.7, 1);
+            letter-spacing: vw(1.75);
+        }
+        .sub-title {
+            font-size: vh(17);
+            font-family: GT-America-Expanded-Light;
+            line-height: vh(27);
+            margin-top: vh(22 + 6);
+            text-align: left;
+            padding-left: vw(72 - 44);
+            opacity: 0;
+            transform: scale(0.5 * 0.7, 0.5);
+            transition: linear $transitionDuration;
+            letter-spacing: vw(0.5);
+            color: #666666;
+        }
+        &.active {
+            &:before, &:after {
+                height: vh(139 + 16);
+            }
+            .title {
+                color: #333333;
+            }
+            .sub-title {
+                opacity: 1;
+                transform: scale(1 * 0.7, 1);
+            }
+        }
+    }
+}
